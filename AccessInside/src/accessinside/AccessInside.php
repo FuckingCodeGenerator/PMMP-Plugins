@@ -7,6 +7,7 @@
 namespace accessinside;
 
 use pocketmine\plugin\PluginBase;
+use pocketmine\utils\Config;
 use accessinside\event\{
 	TouchEvent,
 	BreakEvent
@@ -23,8 +24,13 @@ class AccessInside extends PluginBase
 		//イベント登録
 		$this->getServer()->getPluginManager()->registerEvents(new TouchEvent($this, $this->getDataFolder()), $this);
 		$this->getServer()->getPluginManager()->registerEvents(new BreakEvent(), $this);
+		//Config生成
+		if (!is_dir($this->getDataFolder())) {
+			@mkdir($this->getDataFolder());
+		}
+		$config = new Config($this->getDataFolder() . "Config.yml", Config::YAML, ["op-only" => true]);
 		//コマンド登録
-		$this->getServer()->getCommandMap()->register("acin", new MainCommand());
+		$this->getServer()->getCommandMap()->register("acin", new MainCommand($config));
 		self::$scheduler = $this->getScheduler();
 	}
 
