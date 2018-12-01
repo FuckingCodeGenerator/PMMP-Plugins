@@ -1,0 +1,6 @@
+name: CommandBlock
+main: metowa1227\CommandBlock
+version: 1.0.0
+api:
+  - 3.2.1
+  - 4.0.0
