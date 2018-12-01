@@ -1,0 +1,15 @@
+name: StatusEditor
+main: metowa1227\StatusEditor
+version: 1.0.0
+author: metowa1227
+api:
+  - 3.2.1
+  - 4.0.0
+commands:
+  edit:
+    description: Edit server status
+    usage: Can not run from the console.
+    permission: editor.command.main
+permissions:
+  editor.command.main:
+    default: op
