@@ -1,0 +1,5 @@
+name: TheMaze
+main: maze\TheMaze
+api: 3.3.4
+version: 1.0.0
+author: metowa1227
