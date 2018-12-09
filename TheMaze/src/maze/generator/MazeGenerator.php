@@ -30,7 +30,8 @@ class MazeGenerator implements BaseData
         $endZ = $pos[4];
         $level = Server::getInstance()->getLevelByName($pos[5]);
         $filler = new WallFiller;
-        $filler->fillAllWithWall(TheMaze::getConfigData()["WallBlock"], $startX, $startZ, $endX, $endZ, $y, $level);
+        $config = TheMaze::getConfigData();
+        $filler->fillAllWithWall($config["WallBlock"], $startX, $startZ, $endX, $endZ, $y, $level, $config["WallHeight"], $config["TopWallBlock"], $config["GroundBlock"]);
         $drill = new MazeDriller;
         $drill->drillWallToMaze($startX, $startZ, $endX, $endZ, $y, $level);
         return true;
