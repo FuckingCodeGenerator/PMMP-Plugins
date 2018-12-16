@@ -1,0 +1,5 @@
+name: Driller
+main: driller\Driller
+api: 3
+version: 1
+author: metowa1227
